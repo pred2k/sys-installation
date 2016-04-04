@@ -4,8 +4,9 @@
 
 ## Atom-Editor Plugins
 
-* markdown-preview-plus
-* language-puppet
+* `markdown-preview-plus`
+* `language-docker`
+* `language-puppet`
 
 ## Thuderbird Addons
 * DKIM Verifier
