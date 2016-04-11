@@ -18,6 +18,15 @@ wget -O ~/Downloads/atom-amd64.deb https://atom.io/download/deb && \
 sudo dpkg -i ~/Downloads/atom-amd64.deb && \
 rm ~/Downloads/atom-amd64.deb
 
+# Atom Packages
+apm install markdown-preview-plus
+apm install language-docker
+apm install language-puppet
+# Lint Packages
+gem install puppet-lint
+apm install linter-puppet-lint
+apm install linter-puppet-parse
+
 # HipChat
 sudo su
 echo "deb http://hipchat.iventurecapital.com/clients/linux/apt stable main" > \

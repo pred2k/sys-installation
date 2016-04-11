@@ -2,12 +2,6 @@
 
 * dotfiles installieren
 
-## Atom-Editor Plugins
-
-* `markdown-preview-plus`
-* `language-docker`
-* `language-puppet`
-
 ## Thuderbird Addons
 * DKIM Verifier
   https://addons.mozilla.org/de/thunderbird/addon/dkim-verifier/
