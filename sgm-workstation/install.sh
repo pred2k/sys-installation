@@ -48,7 +48,9 @@ sudo gem install bundler
 sudo apt-get install guake
 
 # Remmina (Remote-Desktop RDP, VNC)
-sudo apt-get install remmina remmina-plugin-rdp
+sudo apt-add-repository ppa:remmina-ppa-team/remmina-next
+sudo apt-get update
+sudo apt-get install remmina remmina-plugin-rdp libfreerdp-plugins-standard
 
 
 # git konfiguration
