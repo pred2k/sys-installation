@@ -52,6 +52,10 @@ sudo apt-add-repository ppa:remmina-ppa-team/remmina-next
 sudo apt-get update
 sudo apt-get install remmina remmina-plugin-rdp libfreerdp-plugins-standard
 
+# Ansible
+sudo apt-add-repository -y ppa:ansible/ansible
+sudo apt-get update
+sudo apt-get install ansible
 
 # git konfiguration
 #git config --global user.name ""
