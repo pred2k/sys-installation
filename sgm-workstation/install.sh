@@ -17,10 +17,14 @@ sudo apt-get install shutter
 sudo apt-get install thunderbird thunderbird-locale-de
 sudo apt-get install enigmail gnupg2
 
-# Atom Editor
+
+# Atom Editor (also use this lines for client updates!)
 wget -O ~/Downloads/atom-amd64.deb https://atom.io/download/deb && \
 sudo dpkg -i ~/Downloads/atom-amd64.deb && \
 rm ~/Downloads/atom-amd64.deb
+
+# Atom metrics disabling (no stats to Google Analytics please!)
+apm disable metrics
 
 # Atom Packages
 apm install markdown-preview-plus
@@ -30,6 +34,7 @@ apm install language-puppet
 gem install puppet-lint
 apm install linter-puppet-lint
 apm install linter-puppet-parse
+
 
 # HipChat
 sudo su
@@ -61,7 +66,7 @@ sudo apt-get install ubuntu-dev-tools cmake zlib1g-dev libgcrypt11-dev
 cd ~/Downloads/
 wget https://www.keepassx.org/releases/${KP_VERSION}/keepassx-${KP_VERSION}.tar.gz
 wget https://www.keepassx.org/releases/${KP_VERSION}/keepassx-${KP_VERSION}.tar.gz.sig
-gpg --verify keepassx-${KP_VERSION}.tar.gz 
+gpg --verify keepassx-${KP_VERSION}.tar.gz
 tar xf keepassx-${KP_VERSION}.tar.gz
 cd keepassx-${KP_VERSION}/
 mkdir build && cd build && \
