@@ -18,6 +18,15 @@ wget -O ~/Downloads/atom-amd64.deb https://atom.io/download/deb && \
 sudo dpkg -i ~/Downloads/atom-amd64.deb && \
 rm ~/Downloads/atom-amd64.deb
 
+# Atom Packages
+apm install markdown-preview-plus
+apm install language-docker
+apm install language-puppet
+# Lint Packages
+gem install puppet-lint
+apm install linter-puppet-lint
+apm install linter-puppet-parse
+
 # HipChat
 sudo su
 echo "deb http://hipchat.iventurecapital.com/clients/linux/apt stable main" > \
@@ -39,9 +48,12 @@ sudo gem install bundler
 sudo apt-get install guake
 
 # Remmina (Remote-Desktop RDP, VNC)
-sudo apt-get install remmina remmina-plugin-rdp
+sudo apt-add-repository ppa:remmina-ppa-team/remmina-next
+sudo apt-get update
+sudo apt-get install remmina remmina-plugin-rdp libfreerdp-plugins-standard
 
-# KeePassX v2 
+
+# KeePassX v2
 KP_VERSION=2.0.2
 sudo apt-get build-dep keepassx
 sudo apt-get install ubuntu-dev-tools cmake zlib1g-dev libgcrypt11-dev
@@ -52,6 +64,13 @@ cd keepassx-${KP_VERSION}/
 mkdir build && cd build && \
 cmake .. && make
 sudo make install
+
+
+# Ansible
+sudo apt-add-repository -y ppa:ansible/ansible
+sudo apt-get update
+sudo apt-get install ansible
+
 
 # git konfiguration
 #git config --global user.name ""
