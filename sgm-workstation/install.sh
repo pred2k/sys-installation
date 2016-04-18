@@ -55,10 +55,13 @@ sudo apt-get install remmina remmina-plugin-rdp libfreerdp-plugins-standard
 
 # KeePassX v2
 KP_VERSION=2.0.2
+gpg --recv-keys '164C 7051 2F79 2947 6764  AB56 FE22 C6FD 8313 5D45'
 sudo apt-get build-dep keepassx
 sudo apt-get install ubuntu-dev-tools cmake zlib1g-dev libgcrypt11-dev
 cd ~/Downloads/
 wget https://www.keepassx.org/releases/${KP_VERSION}/keepassx-${KP_VERSION}.tar.gz
+wget https://www.keepassx.org/releases/${KP_VERSION}/keepassx-${KP_VERSION}.tar.gz.sig
+gpg --verify keepassx-${KP_VERSION}.tar.gz 
 tar xf keepassx-${KP_VERSION}.tar.gz
 cd keepassx-${KP_VERSION}/
 mkdir build && cd build && \
