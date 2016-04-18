@@ -41,6 +41,17 @@ sudo apt-get install guake
 # Remmina (Remote-Desktop RDP, VNC)
 sudo apt-get install remmina remmina-plugin-rdp
 
+# KeePassX v2 
+KP_VERSION=2.0.2
+sudo apt-get build-dep keepassx
+sudo apt-get install ubuntu-dev-tools cmake zlib1g-dev libgcrypt11-dev
+cd ~/Downloads/
+wget https://www.keepassx.org/releases/${KP_VERSION}/keepassx-${KP_VERSION}.tar.gz
+tar xf keepassx-${KP_VERSION}.tar.gz
+cd keepassx-${KP_VERSION}/
+mkdir build && cd build && \
+cmake .. && make
+sudo make install
 
 # git konfiguration
 #git config --global user.name ""
