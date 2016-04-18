@@ -7,7 +7,7 @@ sudo apt-get install vim git htop
 sudo apt-get install puppet facter lsb-release
 
 # basic gui tools:
-sudo apt-get install shutter keepassx
+sudo apt-get install shutter
 
 # Thunderbird mit Enigmail und gnupg2
 sudo apt-get install thunderbird thunderbird-locale-de
