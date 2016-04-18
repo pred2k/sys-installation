@@ -6,6 +6,10 @@
 sudo apt-get install vim git htop
 sudo apt-get install puppet facter lsb-release
 
+# Tools
+sudo apt-get install ruby
+sudo gem install bundler
+
 # basic gui tools:
 sudo apt-get install shutter
 
@@ -40,12 +44,8 @@ sudo apt-get install vagrant virtualbox bundler libz-dev
 vagrant plugin install vagrant-r10k puppet deep_merge
 
 
-# Tools
-sudo apt-get install ruby
-sudo gem install bundler
-
 # Terminal-Emulator Guake
-sudo apt-get install guake
+# sudo apt-get install guake
 
 # Remmina (Remote-Desktop RDP, VNC)
 sudo apt-add-repository ppa:remmina-ppa-team/remmina-next
