@@ -30,6 +30,7 @@ apm disable metrics
 apm install markdown-preview-plus
 apm install language-docker
 apm install language-puppet
+apm install linter-js-yaml
 # Lint Packages
 gem install puppet-lint
 apm install linter-puppet-lint
@@ -43,6 +44,12 @@ echo "deb http://hipchat.iventurecapital.com/clients/linux/apt stable main" > \
 wget -O - https://www.hipchat.com/keys/hipchat-linux.key | apt-key add -
 apt-get update
 apt-get install hipchat
+
+# HipChat 4 from official Repo
+sudo sh -c 'echo "deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client $(lsb_release -c -s) main" > /etc/apt/sources.list.d/atlassian-hipchat4.list'
+wget -O - https://atlassian.artifactoryonline.com/atlassian/api/gpg/key/public | sudo apt-key add -
+sudo apt-get update && \
+sudo apt-get install hipchat4
 
 # Vagrant
 sudo apt-get install vagrant virtualbox bundler libz-dev
@@ -75,8 +82,8 @@ sudo make install
 
 
 # Ansible
-sudo apt-add-repository -y ppa:ansible/ansible
-sudo apt-get update
+sudo apt-add-repository -y ppa:ansible/ansible && \
+sudo apt-get update && \
 sudo apt-get install ansible
 
 
