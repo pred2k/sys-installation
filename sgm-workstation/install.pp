@@ -5,6 +5,7 @@ class { 'apt': }
 
 apt::ppa{ 'ppa:remmina-ppa-team/remmina-next': }
 apt::ppa{ 'ppa:ansible/ansible': }
+apt::ppa{ 'ppa:shutter/ppa': }
 
 $packages = ['terminator', 'shutter',
 'remmina',
