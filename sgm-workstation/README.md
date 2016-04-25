@@ -2,10 +2,12 @@
 
 * dotfiles installieren
 
-# Installationn mit Puppet Manifest
+# Installation mit Puppet Manifest
 
 ```bash
 sudo apt-get install puppet
+# download Modules
+puppet module install --modulepath puppet-modules puppetlabs-apt
 sudo puppet apply --modulepath=../puppet-modules/ install.pp
 ```
 
