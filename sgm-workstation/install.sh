@@ -3,7 +3,7 @@
 # tasksel auswahl: 'Ubuntu GNOME Desktop'
 
 # basic console tools:
-sudo apt-get install vim git htop
+sudo apt-get install vim git htop pydf python-pip
 sudo apt-get install puppet facter lsb-release
 
 # Tools
@@ -52,7 +52,7 @@ sudo apt-get update && \
 sudo apt-get install hipchat4
 
 # Vagrant
-sudo apt-get install vagrant virtualbox bundler libz-dev
+sudo apt-get install vagrant virtualbox libz-dev
 vagrant plugin install vagrant-r10k puppet deep_merge
 
 
