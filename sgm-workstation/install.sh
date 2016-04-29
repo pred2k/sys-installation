@@ -29,12 +29,15 @@ apm disable metrics
 # Atom Packages
 apm install markdown-preview-plus
 apm install language-docker
+apm install linter-docker
 apm install language-puppet
 apm install linter-js-yaml
-# Lint Packages
+# Lint Packages für Puppet
 gem install puppet-lint
 apm install linter-puppet-lint
 apm install linter-puppet-parse
+# Candy
+apm install file-icons
 
 
 # HipChat
