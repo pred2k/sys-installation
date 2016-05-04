@@ -11,9 +11,9 @@ sudo apt-get install ruby
 sudo gem install bundler
 
 # basic gui tools:
-sudo apt-get install shutter
+sudo apt-get install gitg shutter meld
 
-# Thunderbird mit Enigmail und gnupg2
+# Thunderbird with Enigmail and gnupg2
 sudo apt-get install thunderbird thunderbird-locale-de
 sudo apt-get install enigmail gnupg2
 
@@ -32,7 +32,7 @@ apm install language-docker
 apm install linter-docker
 apm install language-puppet
 apm install linter-js-yaml
-# Lint Packages für Puppet
+# Lint Packages for Puppet
 gem install puppet-lint
 apm install linter-puppet-lint
 apm install linter-puppet-parse
@@ -90,9 +90,12 @@ sudo apt-get update && \
 sudo apt-get install ansible
 
 
-# git konfiguration
+# git configuration
 #git config --global user.name ""
 #git config --global user.email ""
 git config --global diff.renames true
 git config --global core.editor "vim"
 git config --global color.ui "auto"
+
+# remove useless GNOME Apps:
+sudo apt-get purge cheese aisleriot gnome-mahjongg gnome-sudoku gnome-mines

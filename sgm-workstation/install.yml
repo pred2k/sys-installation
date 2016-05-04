@@ -1,0 +1,44 @@
+---
+  - hosts: localhost
+    connection: local
+    become: yes
+
+    vars:
+      basic_packages:
+        - vim
+        - git
+        - htop
+        - pydf
+        - python-pip
+      gui_packages:
+        - gitg
+        - shutter
+        - meld
+      additional_ppa:
+        - ppa_name: ppa:remmina-ppa-team/remmina-next
+          ppa_packages:
+          - remmina
+          - remmina-plugin-rdp
+          - libfreerdp-plugins-standard
+        - ppa_name: ppa:ansible/ansible
+          ppa_packages:
+            - ansible
+        - ppa_name: ppa:shutter/ppa
+          ppa_packages:
+            - shutter
+
+    tasks:
+    - name: add ppa's
+      apt_repository: repo="{{ item.ppa_name }}"
+      with_items: "{{ additional_ppa }}"
+
+    - name: update apt cache
+      apt: update_cache=yes cache_valid_time=3600
+
+
+    - name: install packages
+      apt: name={{ item }} state=present
+      with_items:
+        - "{{ basic_packages }}"
+        - "{{ gui_packages }}"
+        #- "{{ additional_ppa.ppa_name.ppa_packages }}"
