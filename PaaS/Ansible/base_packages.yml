@@ -1,0 +1,51 @@
+---
+  - hosts: 127.0.0.1
+    connection: local
+    become: yes
+
+    tasks:
+    - name: Update package sources
+      action: "{{ ansible_pkg_mgr }} update_cache=yes cache_valid_time=3600"
+
+    - name: Install packages
+      action: "{{ ansible_pkg_mgr }} pkg={{ item }} state=present"
+      with_items:
+        - git
+        - ruby
+        - rake
+        - rbenv
+        - python-pip
+        #- vagrant
+        #- virtualbox
+        #- virtualbox-ext-pack
+
+    - name: Install 'bundler' with gem
+      gem: name=bundler state=present
+
+
+    - include: vagrant.yml
+      vars:
+        version: 1.8.1
+      tags: vagrant
+
+    - include: virtualbox.yml
+      tags: virtualbox
+
+    - include: docker.yml
+      tags: docker
+
+    - include: docker-compose.yml
+      tags: docker-compose
+
+    - include: virtualbox.yml
+      tags: virtualbox
+
+    - include: deisctl.yml
+      vars:
+        deisclt_version: 1.13.0
+      tags: deisctl
+
+    - include: fleetctl.yml
+      vars:
+        version: "v0.11.7"
+      tags: fleetctl

@@ -1,0 +1,28 @@
+---
+  # Docker Compose
+  # curl -L https://github.com/docker/compose/releases/download/1.7.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+  # chmod +x /usr/local/bin/docker-compose
+  # Alternative: pip install docker-compose
+  - name: Download docker-compose
+    get_url:
+      url: https://github.com/docker/compose/releases/download/1.7.0/docker-compose-{{ ansible_system }}-{{ ansible_machine }}
+      dest: /usr/local/bin/docker-compose
+      mode: 0755
+
+  # Package: bash-completion
+  #- apt: name=bash-completion state=present
+  - name: Install Packages with apt
+    action: "{{ ansible_pkg_mgr }} pkg={{ item }} state=present"
+    with_items:
+      - bash-completion
+      
+  #curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/bash/docker-compose > /etc/bash_completion.d/docker-compose
+  - name: Save docker-compose version for following get_url
+    shell: docker-compose version --short
+    register: docker_compose_version
+
+  - name: Get bash-completion for docker-compose
+    get_url:
+      url: https://raw.githubusercontent.com/docker/compose/{{ item }}/contrib/completion/bash/docker-compose
+      dest: /etc/bash_completion.d/docker-compose
+    with_items: "{{ docker_compose_version.stdout }}"

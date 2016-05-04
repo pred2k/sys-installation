@@ -1,0 +1,25 @@
+---
+
+  - name: download fleetctl
+    get_url:
+      url: https://github.com/coreos/fleet/releases/download/{{ version }}/fleet-{{ version }}-{{ ansible_system | lower }}-{{ facter_architecture }}.tar.gz
+      dest: /tmp/fleet-{{ version }}-{{ ansible_system | lower }}-{{ facter_architecture }}.tar.gz
+
+  - name: unarchive fleetctl
+    unarchive:
+      src: /tmp/fleet-{{ version }}-{{ ansible_system | lower }}-{{ facter_architecture }}.tar.gz
+      dest: /tmp/
+
+  - name: install fleetctl
+    copy:
+      src: /tmp/fleet-{{ version }}-{{ ansible_system | lower }}-{{ facter_architecture }}/fleetctl
+      dest: /usr/local/bin/fleetctl
+      owner: root
+      group: root
+      mode: 0755
+
+  - name: cleanup
+    file: path=/tmp/fleet-{{ version }}-{{ ansible_system | lower }}-{{ facter_architecture }}.tar.gz state=absent
+
+  - name: cleanup 2
+    file: path=/tmp/fleet-{{ version }}-{{ ansible_system | lower }}-{{ facter_architecture }}/ state=absent

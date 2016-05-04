@@ -1,0 +1,30 @@
+---
+  - name: Run apt-get update
+    apt: update_cache=yes cache_valid_time=3600
+
+  - name: Install required Packages
+    apt: name={{ item }} state=present
+    with_items:
+      - apt-transport-https
+      - ca-certificates
+
+  - name: Add Docker apt repo key
+    apt_key:
+      keyserver: "hkp://p80.pool.sks-keyservers.net:80"
+      id: "58118E89F3A912897C070ADBF76221572C52609D"
+
+  - name: Add Docker repo
+    apt_repository:
+      repo: "deb https://apt.dockerproject.org/repo {{ ansible_distribution | lower }}-{{ ansible_distribution_release }} main"
+      update_cache: yes
+
+  - name: Make sure lxc-docker is not installed
+    apt: name=lxc-docker state=absent purge=yes
+
+  - name: Install docker-engine
+    apt: name=docker-engine state=present
+
+  - name: start service docker
+    service: name=docker state=running
+
+  # Add user to group 'docker' - How to know which user???
