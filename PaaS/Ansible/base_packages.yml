@@ -45,6 +45,11 @@
         deisclt_version: 1.13.0
       tags: deisctl
 
+    - include: deis_client.yml
+      vars:
+        deisclt_version: 1.13.0
+      tags: deisclient
+
     - include: fleetctl.yml
       vars:
         version: "v0.11.7"
