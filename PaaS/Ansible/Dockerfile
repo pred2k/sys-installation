@@ -10,5 +10,5 @@ FROM ubuntu:xenial
 # so we use pip to install ansible
 
 RUN apt-get update && \
-    apt-get install -y python-pip libffi-dev libssl-dev curl facter && \
+    apt-get install -y vim wget python-pip libffi-dev libssl-dev curl facter && \
     pip install ansible

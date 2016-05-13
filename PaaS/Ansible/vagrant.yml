@@ -1,4 +1,4 @@
 ---
   - name: download vagrant
     # works with ansible v2.1+ only!
-    apt: deb=https://releases.hashicorp.com/vagrant/{{ version }}/vagrant_{{ version }}_{{ ansible_architecture }}.deb
+    apt: deb=https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_{{ ansible_architecture }}.deb

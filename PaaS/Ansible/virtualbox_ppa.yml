@@ -1,6 +1,6 @@
 ---
   # https://www.virtualbox.org/wiki/Linux_Downloads
-  
+
   - name: Add virtualbox 2016 apt-repo key
     apt_key:
       url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
@@ -16,5 +16,5 @@
       repo: "deb http://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release }} contrib"
       update_cache: yes
 
-  - name: Install virtualbox-5.0
+  - name: Install virtualbox-5.0 from ppa
     apt: name=virtualbox-5.0 state=present

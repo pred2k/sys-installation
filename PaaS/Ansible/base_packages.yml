@@ -7,7 +7,7 @@
     - name: Update package sources
       action: "{{ ansible_pkg_mgr }} update_cache=yes cache_valid_time=3600"
 
-    - name: Install packages
+    - name: Install base packages
       action: "{{ ansible_pkg_mgr }} pkg={{ item }} state=present"
       with_items:
         - git
@@ -15,21 +15,31 @@
         - rake
         - rbenv
         - python-pip
-        #- vagrant
-        #- virtualbox
-        #- virtualbox-ext-pack
 
     - name: Install 'bundler' with gem
       gem: name=bundler state=present
 
 
-    - include: vagrant.yml
-      vars:
-        version: 1.8.1
+    - name: Install virtualbox and virtualbox-ext-pack
+      apt: name={{ item }}
+      with_items:
+        - virtualbox
+        - virtualbox-ext-pack
+      tags: virtualbox
+
+    - include: virtualbox_ppa.yml
+      tags: virtualbox_ppa
+
+
+    - name: Install vagrant
+      apt: name=vagrant
       tags: vagrant
 
-    - include: virtualbox.yml
-      tags: virtualbox
+    - include: vagrant.yml
+      vars:
+        vagrant_version: 1.8.1
+      tags: vagrant_from_web
+
 
     - include: docker.yml
       tags: docker
@@ -37,8 +47,6 @@
     - include: docker-compose.yml
       tags: docker-compose
 
-    - include: virtualbox.yml
-      tags: virtualbox
 
     - include: deisctl.yml
       vars:
@@ -52,5 +60,5 @@
 
     - include: fleetctl.yml
       vars:
-        version: "v0.11.7"
+        fleetctl_version: v0.11.7
       tags: fleetctl

@@ -11,5 +11,5 @@
       chdir: /usr/local/bin/
       creates: /usr/local/bin/deis
 
-  - name: cleanup deis client
+  - name: cleanup
     file: path=/tmp/deis-cli_install.sh state=absent
