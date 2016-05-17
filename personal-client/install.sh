@@ -12,3 +12,8 @@ sudo apt-get update && \
 sudo apt-get install spotify-client
 
 sudo pip install youtube-dl
+
+# Hexchat (Xenial supported)
+sudo apt-add-repository -y ppa:gwendal-lebihan-dev/hexchat-stable  && \
+sudo apt-get -qq update && \
+sudo apt-get install hexchat
