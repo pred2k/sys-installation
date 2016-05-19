@@ -11,6 +11,7 @@
         - htop
         - pydf
         - python-pip
+        - p7zip-full
       gui_packages:
         - gitg
         - meld
@@ -28,6 +29,9 @@
         - state: absent
           ppa_name: 'ppa:ansible/ansible'
           ppa_packages: ansible
+      gems:
+        - bundler
+        - hiera-eyaml
 
     tasks:
     - name: add ppa's
@@ -47,3 +51,8 @@
       apt: name={{ item.ppa_packages }} state={{ item.state }}
       with_items:
         - "{{ additional_ppa }}"
+
+    - name: Install ruby gems
+      gem: name={{ item }} state=present
+      with_items:
+        - "{{ gems }}"
