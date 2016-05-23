@@ -11,7 +11,8 @@ echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sourc
 sudo apt-get update && \
 sudo apt-get install spotify-client
 
-sudo pip install youtube-dl
+sudo -H pip install --upgrade pip
+sudo -H pip install --upgrade youtube-dl httpie
 
 # HexChat - https://hexchat.github.io/ (Ubuntu Xenial supported)
 sudo apt-add-repository -y ppa:gwendal-lebihan-dev/hexchat-stable && \
@@ -22,8 +23,9 @@ sudo apt-get install hexchat
 # Install Jitsi (Check https://jitsi.org/ or https://download.jitsi.org/jitsi/debian/ for latest Version first!)
 # Installing the .deb also adds Jitsi repository to sources list and gpg key
 JITSI_VERSION=2.8.5426-1
-JITSI_ARCHITECTURE=amd64
-wget https://download.jitsi.org/jitsi/debian/jitsi_${JITSI_VERSION}_${JITSI_ARCHITECTURE}.deb && sudo dpkg -i jitsi_${JITSI_VERSION}_${JITSI_ARCHITECTURE}.deb && sudo apt-get install -f
+JITSI_ARCHITECTURE=$(dpkg --print-architecture)
+wget https://download.jitsi.org/jitsi/debian/jitsi_${JITSI_VERSION}_${JITSI_ARCHITECTURE}.deb && sudo dpkg -i jitsi_${JITSI_VERSION}_${JITSI_ARCHITECTURE}.deb && \
+sudo apt-get install -f
 
 
 # Install Veracrypt
