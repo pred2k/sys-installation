@@ -32,6 +32,10 @@
       gems:
         - bundler
         - hiera-eyaml
+      pips:
+        - git-lint
+        - puppet-lint
+        - httpie
 
     tasks:
     - name: add ppa's
@@ -56,3 +60,8 @@
       gem: name={{ item }} state=present
       with_items:
         - "{{ gems }}"
+
+    - name: Install pips
+      pip: name={{ item }} state=present
+      with_items:
+        - "{{ pips }}"
