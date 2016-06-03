@@ -1,0 +1,12 @@
+markdown-preview-plus
+editorconfig
+atom-alignment
+language-docker
+linter-docker
+language-puppet
+language-logstash
+language-tick
+linter-js-yaml
+linter-puppet-lint
+linter-puppet-parse
+file-icons

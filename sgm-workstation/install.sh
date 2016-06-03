@@ -32,19 +32,7 @@ apm disable metrics
 gem install puppet-lint
 
 # Atom Packages
-apm install markdown-preview-plus
-apm install editorconfig
-apm install atom-alignment
-apm install language-docker
-apm install linter-docker
-apm install language-puppet
-apm install language-logstash
-apm install language-tick
-apm install linter-js-yaml
-apm install linter-puppet-lint
-apm install linter-puppet-parse
-# Candy
-apm install file-icons
+apm install --packages-file my_atom_packages.txt
 
 
 # HipChat 4 from official Repo
