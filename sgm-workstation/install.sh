@@ -13,7 +13,7 @@ sudo -H pip install --upgrade pip
 sudo -H pip install --upgrade git-lint httpie
 
 # basic gui tools:
-sudo apt-get install gitg shutter meld
+sudo apt-get install meld gitg shutter vokoscreen
 
 # Thunderbird with Enigmail and gnupg2
 sudo apt-get install thunderbird thunderbird-locale-de
@@ -33,7 +33,6 @@ gem install puppet-lint
 
 # Atom Packages
 apm install --packages-file my_atom_packages.txt
-
 
 # HipChat 4 from official Repo
 sudo sh -c 'echo "deb [arch=amd64] https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client $(lsb_release -c -s) main" > /etc/apt/sources.list.d/atlassian-hipchat4.list'

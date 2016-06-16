@@ -2,11 +2,13 @@ markdown-preview-plus
 editorconfig
 atom-alignment
 language-docker
-linter-docker
 language-puppet
+language-rspec
 language-logstash
 language-tick
+linter-docker
 linter-js-yaml
 linter-puppet-lint
 linter-puppet-parse
 file-icons
+minimap

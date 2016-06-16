@@ -12,7 +12,8 @@ $packages = ['terminator',
 'remmina',
 'remmina-plugin-rdp',
 'libfreerdp-plugins-standard',
-'shutter']
+'shutter',
+'vokoscreen']
 
 package { $packages :
   ensure  => installed,

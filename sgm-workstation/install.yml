@@ -15,6 +15,7 @@
       gui_packages:
         - gitg
         - meld
+        - vokoscreen
         #- shutter
       additional_ppa:
         - state: present
