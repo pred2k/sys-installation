@@ -12,6 +12,7 @@
         - pydf
         - python-pip
         - p7zip-full
+        - jq
       gui_packages:
         - gitg
         - meld

@@ -3,7 +3,7 @@
 # tasksel auswahl: 'Ubuntu GNOME Desktop'
 
 # basic console tools:
-sudo apt-get install vim git htop pydf python-pip
+sudo apt-get install vim git htop pydf python-pip jq
 sudo apt-get install puppet facter lsb-release
 
 # Tools
