@@ -1,6 +1,5 @@
 ---
   - hosts: 127.0.0.1
-    connection: local
     become: yes
 
     tasks:
@@ -62,3 +61,8 @@
       vars:
         fleetctl_version: v0.11.7
       tags: fleetctl
+
+    - include: kubectl.yaml
+      vars:
+        kubectl_version: v1.3.0
+      tags: kubectl
