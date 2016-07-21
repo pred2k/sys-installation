@@ -45,6 +45,21 @@ sudo apt-get install vagrant virtualbox libz-dev
 vagrant plugin install vagrant-r10k puppet deep_merge
 
 
+# Terraform
+# Download Hashicorp GPG Key (https://www.hashicorp.com/security.html or https://keybase.io/hashicorp)
+gpg --keyserver hkps.pool.sks-keyservers.net --recv-keys '91A6 E7F8 5D05 C656 30BE F189 5185 2D87 348F FC4C'
+TF_VERSION=0.7.0-rc3
+cd ~/Downloads/
+wget https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_SHA256SUMS
+wget https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_SHA256SUMS.sig
+wget https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_linux_amd64.zip
+gpg --verify terraform_${TF_VERSION}_SHA256SUMS.sig || exit 1
+grep terraform_${TF_VERSION}_linux_amd64.zip terraform_${TF_VERSION}_SHA256SUMS | sha256sum -c || exit 1
+unzip terraform_${TF_VERSION}_linux_amd64.zip
+sudo mv terraform /usr/local/bin/
+rm terraform*
+
+
 # Terminal-Emulator Guake
 # sudo apt-get install guake
 

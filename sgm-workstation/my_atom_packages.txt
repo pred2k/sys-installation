@@ -6,6 +6,7 @@ language-puppet
 language-rspec
 language-logstash
 language-tick
+language-terraform
 linter-docker
 linter-js-yaml
 linter-puppet-lint
