@@ -40,13 +40,27 @@ wget -O - https://atlassian.artifactoryonline.com/atlassian/api/gpg/key/public |
 sudo apt-get update && \
 sudo apt-get install hipchat4
 
-# Vagrant
-sudo apt-get install vagrant virtualbox libz-dev
+sudo apt-get install virtualbox libz-dev
+# Vagrant from ubuntu repo
+# sudo apt-get install vagrant
+
+# Vagrant (latest)
+# Hashicorp GPG Key (https://www.hashicorp.com/security.html or https://keybase.io/hashicorp)
+gpg --keyserver hkps.pool.sks-keyservers.net --recv-keys '91A6 E7F8 5D05 C656 30BE F189 5185 2D87 348F FC4C'
+VA_VERSION=1.8.5
+cd ~/Downloads/
+wget https://releases.hashicorp.com/vagrant/${VA_VERSION}/vagrant_${VA_VERSION}_SHA256SUMS
+wget https://releases.hashicorp.com/vagrant/${VA_VERSION}/vagrant_${VA_VERSION}_SHA256SUMS.sig
+wget https://releases.hashicorp.com/vagrant/${VA_VERSION}/vagrant_${VA_VERSION}_x86_64.deb
+gpg --verify vagrant_${VA_VERSION}_SHA256SUMS.sig || exit 1
+grep vagrant_${VA_VERSION}_x86_64.deb vagrant_${VA_VERSION}_SHA256SUMS | sha256sum -c || exit 1
+sudo dpkg -i vagrant_${VA_VERSION}_x86_64.deb
+
+# Needed Vagrant plugins for puppet
 vagrant plugin install vagrant-r10k puppet deep_merge
 
-
 # Terraform
-# Download Hashicorp GPG Key (https://www.hashicorp.com/security.html or https://keybase.io/hashicorp)
+# Hashicorp GPG Key (https://www.hashicorp.com/security.html or https://keybase.io/hashicorp)
 gpg --keyserver hkps.pool.sks-keyservers.net --recv-keys '91A6 E7F8 5D05 C656 30BE F189 5185 2D87 348F FC4C'
 TF_VERSION=0.7.0-rc3
 cd ~/Downloads/
