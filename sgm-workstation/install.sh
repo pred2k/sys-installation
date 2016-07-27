@@ -1,9 +1,9 @@
 # SGM Workstation (1. April 2016)
-# Sys: Ubuntu 15.10 (von PXE)
+# Sys: Ubuntu 15.10 amd64 (von PXE)
 # tasksel auswahl: 'Ubuntu GNOME Desktop'
 
 # basic console tools:
-sudo apt-get install vim git htop pydf python-pip jq
+sudo apt-get install vim git htop pydf python-pip python-dev jq
 sudo apt-get install puppet facter lsb-release
 
 # Tools
