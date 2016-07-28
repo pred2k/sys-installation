@@ -17,9 +17,8 @@ apt-cache policy docker-engine
 sudo apt-get install docker-engine && \
 sudo service docker start
 
-# Add user to group
-sudo usermod -aG docker basti
+# Add current to docker group (no more sudo for docker command required)
+sudo usermod -aG docker $USER
 
 # check if Docker works:
-sudo docker run hello-world
-
+docker run --rm hello-world
