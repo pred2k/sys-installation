@@ -1,3 +1,4 @@
+git-plus
 markdown-preview-plus
 editorconfig
 atom-alignment
@@ -9,6 +10,7 @@ language-tick
 language-terraform
 linter-docker
 linter-js-yaml
+linter-jsonlint
 linter-puppet-lint
 linter-puppet-parse
 file-icons
