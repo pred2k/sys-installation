@@ -1,4 +1,5 @@
 git-plus
+atom-jinja2
 markdown-preview-plus
 editorconfig
 atom-alignment

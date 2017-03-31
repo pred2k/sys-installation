@@ -1,0 +1,38 @@
+---
+  - hosts: localhost
+    connection: local
+    gather_facts: false
+
+    vars:
+      - KeePassX:
+          Version: '2.0.2'
+          GPG_KEY_FINGERPRINT: 164C 7051 2F79 2947 6764  AB56 FE22 C6FD 8313 5D45
+          # Downloads:
+          #   - https://www.keepassx.org/releases/{{ KeePassX.Version }}/keepassx-{{ KeePassX.Version }}.dmg
+          #   - https://www.keepassx.org/releases/{{ KeePassX.Version }}/keepassx-{{ KeePassX.Version }}.dmg.sig
+          # DL_Extentions:
+          #   Linux: .tar.gz
+          #   Mac: .dmg
+
+    tasks:
+      - name: "Downloads"
+        get_url:
+          url: "https://www.keepassx.org/releases/{{ KeePassX.Version }}/KeePassX-{{ KeePassX.Version }}.dmg"
+          dest: /Users/forst6/Downloads/
+
+      - name: "Downloads"
+        get_url:
+          url: "https://www.keepassx.org/releases/{{ KeePassX.Version }}/KeePassX-{{ KeePassX.Version }}.dmg.sig"
+          dest: /Users/forst6/Downloads/
+
+
+      # - name: GPG Receive Key
+      #   command: "gpg --keyserver hkps.pool.sks-keyservers.net --recv-keys '{{ KeePassX.GPG_KEY_FINGERPRINT }}'"
+
+
+        # # KeePassX v2 - https://www.keepassx.org/
+        # KP_VERSION=2.0.2
+        # cd ~/Downloads/
+        # wget https://www.keepassx.org/releases/${KP_VERSION}/keepassx-${KP_VERSION}.tar.gz
+        # wget https://www.keepassx.org/releases/${KP_VERSION}/keepassx-${KP_VERSION}.tar.gz.sig
+        # gpg --keyserver hkps.pool.sks-keyservers.net --recv-keys '164C 7051 2F79 2947 6764  AB56 FE22 C6FD 8313 5D45'

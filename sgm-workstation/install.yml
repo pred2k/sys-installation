@@ -38,6 +38,8 @@
         - git-lint
         - puppet-lint
         - httpie
+        # Required for linter-ansible-linting
+        - ansible-lit
 
     tasks:
     - name: add ppa's
