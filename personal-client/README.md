@@ -8,6 +8,7 @@
 * RefControl
 * Self-Destructing Cookies
 * uBlock **Origin**
+* CanvasBlocker
 
 https://addons.mozilla.org/de/firefox/collections/bukkit/
 
@@ -32,6 +33,7 @@ disable all, but Flash. set Flash to clicktoplay
 http://kb.mozillazine.org/About:config_entries
 
 `webgl.disabled` to `true`  
+`webgl.enable-webgl2` to `false` (WebGL2 is enabled since Firefox 51)  
 `media.peerconnection.enabled` to `false`
 
 #### Tip von ip-check.info:
