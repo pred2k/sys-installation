@@ -45,9 +45,11 @@ brew install git-flow-avh
 
 # Install KeePassXC
 gpg --keyserver pool.sks-keyservers.net --recv-keys 0xBF5A669F2272CF4324C1FDA8CFB4C2166397D0D2
-KEEPASSXC_VERSION=2.1.3
+KEEPASSXC_VERSION=2.2.0
 curl -L --remote-name-all https://github.com/keepassxreboot/keepassxc/releases/download/$KEEPASSXC_VERSION/KeePassXC-$KEEPASSXC_VERSION.dmg{,.digest,.sig}
 gpg --verify KeePassXC-$KEEPASSXC_VERSION.dmg.sig
 shasum -a 256 -c KeePassXC-$KEEPASSXC_VERSION.dmg.DIGEST
 # For Linux:
 # sha256sum -c KeePassXC-$KEEPASSXC_VERSION.dmg.DIGEST
+hdiutil attach KeePassXC-2.2.0.dmg
+sudo cp -R "/Volumes/KeePassXC/KeePassXC.app" /Applications
