@@ -1,0 +1,7 @@
+editorconfig
+atom-alignment
+language-ansible
+language-docker
+language-terraform
+linter-puppet-parse
+file-icons
